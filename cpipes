@@ -1,0 +1,56 @@
+#!/usr/bin/env nextflow
+
+/*
+----------------------------------------------------------------------------------------
+    cfsan-dev/cpipes
+----------------------------------------------------------------------------------------
+    NAME          : CPIPES
+    DESCRIPTION   : Modular Nextflow pipelines at CFSAN, FDA.
+    GITLAB        : https://xxxxxxxxxx/Kranti.Konganti/cpipes-framework
+    JIRA          : https://xxxxxxxxxx/jira/projects/CPIPES/
+    CONTRIBUTORS  : Kranti Konganti
+----------------------------------------------------------------------------------------
+*/
+
+// Enable DSL 2
+nextflow.enable.dsl = 2
+
+// Default routines for MAIN
+include { pipelineBanner; stopNow; } from "${params.routines}"
+
+// Our banner for CPIPES
+log.info pipelineBanner()
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    INCLUDE ALL WORKFLOWS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+switch ("${params.pipeline}") {
+    case "nowayout":
+        include { NOWAYOUT } from "${params.workflows}${params.fs}${params.pipeline}"
+        break
+    default:
+        stopNow("PLEASE MENTION A PIPELINE NAME. Ex: --pipeline nowayout")
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    RUN ALL WORKFLOWS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+workflow {
+    switch ("${params.pipeline}") {
+        case "nowayout":
+            NOWAYOUT()
+            break
+    }
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    THE END
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/

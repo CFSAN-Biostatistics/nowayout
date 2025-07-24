@@ -1,0 +1,11 @@
+# Exclude files that don't belong in repo
+t*nf
+t*csv
+test*
+CPIPES-*
+.nextflow*
+inputtest*
+work
+.vscode*
+kondagac_cache*
+cingularitygac_cache*

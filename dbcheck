@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+
+##########################################################
+# Constants
+##########################################################
+GREEN=$(tput setaf 2)
+RED=$(tput setaf 1)
+CYAN=$(tput setaf 6)
+CLRESET=$(tput sgr0)
+prog_name="nowayout"
+dbBuild="03062025"
+# dbPath="./assets/${prog_name}/$dbBuild"
+dbPath="./assets/dbfiles"
+taxonomyPath="$dbPath/taxonomy"
+
+usage()
+{
+    echo
+    echo usage: "$0" [-h] 
+    echo
+    echo "Check for species presence in ${prog_name} database(s)."
+    echo
+    echo 'Example usage:'
+    echo
+    echo 'dbcheck -l'
+    echo 'dbcheck -g Cathartus'
+    echo 'dbcheck -d mitomine -g Cathartus'
+    echo 'dbcheck -d mitomine -s "Cathartus quadriculus"'
+    echo
+    echo 'Options:'
+    echo " -l        : List ${prog_name} databases"
+    echo ' -d        : Search this database. Default: mitomine.'
+    echo ' -g        : Genus to search for.'
+    echo ' -s        : "Genus Species" to search for.'
+    echo ' -h        : Show this help message and exit'
+    echo
+    echo "$1"
+}
+
+while getopts ":d:g:s:l" OPT; do
+    case "${OPT}" in
+        l)
+            listdb="list"
+            ;;
+        d)
+            dbname=${OPTARG}
+            ;;
+        g)
+            genus=${OPTARG}
+            ;;
+        s)
+            species=${OPTARG}
+            ;;
+        ?)
+            usage
+            exit 0
+            ;;
+    esac
+done
+
+
+
+if [ -n "$listdb" ]; then
+    num_dbs=$(find -L "$taxonomyPath" -type d | tail -n+2 | wc -l)
+    echo "=============================================="
+    
+    db_num="1"
+    find -L $taxonomyPath -type d | tail -n+2 | while read -r db; do
+        dbName=$(basename "$db")
+        echo "${db_num}. $dbName"
+        db_num=$(( db_num + 1 ))
+    done
+    echo "=============================================="
+    echo "Number of ${prog_name} databases: $num_dbs"
+    echo "=============================================="
+
+    exit 0
+fi
+
+
+
+if [ -z "$dbname" ]; then
+    dbname="mitomine2"
+fi
+
+if [[ -n "$genus" && -n "$species" ]]; then
+    usage "ERROR: Only one of -g or -s needs to be defined!"
+    exit 1
+elif [ -n "$genus" ]; then
+    check="$genus"
+elif [ -n "$species" ]; then
+    check="$species"
+else 
+    check=""
+fi
+
+if [ -z "$check" ]; then
+    usage "ERROR: -g or -s is required! check:$check"
+    exit 1
+fi
+
+lineages="$taxonomyPath/$dbname/lineages.csv"
+
+echo
+echo -e "Checking ${dbname} for ${CYAN}${check}${CLRESET}...\nPlease wait..."
+echo
+
+num=$(grep -F ",$check," "$lineages" | cut -f1 -d, | sort -u | wc -l)
+num_species=$(tail -n+2 "$lineages" | cut -f8 -d, | sort -u | wc -l)
+num_entries=$(tail -n+2 "$lineages" | wc -l)
+
+echo "$dbname brief stats"
+echo "=============================================="
+echo "DB Build: $dbBuild"
+echo "Number of unique species: $num_species"
+echo "Number of accessions in database: $num_entries"
+echo "=============================================="
+
+
+if [ "$num" -gt 0 ]; then
+    echo
+    echo "${GREEN}$check is present in ${dbname}${CLRESET}."
+    echo "Number of accessions representing $check: $num"
+    echo "=============================================="
+else
+    echo "${RED}$check is absent in ${dbname}${CLRESET}."
+    echo -e "No worries. Please request the developer of\n${prog_name} to augment the database!"
+    echo "=============================================="
+fi 
