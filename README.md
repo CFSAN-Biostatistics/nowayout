@@ -6,7 +6,7 @@
 
 `nowayout` is a **super-fast** automated software pipeline for taxonomic classification of Eukaryotic mitochondrial reads. It uses a custom database to first identify mitochondrial reads and performs read classification on those identified reads. This pipeline has been specifically used for detecting and identifying insects or insect fragments in foods and also has been used as a verification tool for labeling claims when insects are used as foods. `nowayout` can also be used to detect any Eukaryotic DNA from shotgun metagenomic datasets. The pipeline is under active rapid development and more research is being currently undertaken to solve the ambigous read assignments.
 
-`nowayout` currently works on both **Illumina** short reads and in future will support **Oxford Nanopore** long reads.
+`nowayout` currently works on **Illumina** short reads and in future will support **Oxford Nanopore** long reads.
 
 It is written in **Nextflow** and is part of the modular data analysis pipelines at **HFP**.
 
