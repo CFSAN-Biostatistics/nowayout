@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="../assets/nowayout-icon.png" width="20%" height="20%" />
+    <img src="../assets/nowayout-icon-augm.png" width="35%" height="35%" />
 </p>
 
 ---
