@@ -1,37 +1,37 @@
 ---
 title: 'nowayout: An automated pipeline for taxonomic classification of Eukaryotic mitochondrial reads'
 tags:
-- Bioinformatics
-- Food safety
-- Metagenomics
-- Mitochondrial DNA
-- Taxonomic classification
-- Bacterial Genomics
+    - Bioinformatics
+    - Food safety
+    - Metagenomics
+    - Mitochondrial DNA
+    - Taxonomic classification
+    - Bacterial Genomics
 authors:
-- name: Kranti Konganti
-    orcid: 0009-0002-3023-1099
-    affiliation: "1"
-    corresponding: true
-- name: Monica Pava-Ripoll
-    orcid: 0000-0001-8401-4044
-    affiliation: "1"
-- name: Amanda Windsor
-    orcid: 0000-0002-5192-7047
-    affiliation: "1"
-- name: Christopher Grim
-    orcid: 0000-0002-7839-8309
-    affiliation: "1"
-- name: Mark Mammel
-    orcid: 0000-0002-8273-6091
-    affiliation: "1"
-- name: Padmini Ramachandran
-    orcid: 0000-0002-3958-3843
-    affiliation: "1"
+    - name: Kranti Konganti
+      orcid: 0009-0002-3023-1099
+      affiliation: "1"
+      corresponding: true
+    - name: Monica Pava-Ripoll
+      orcid: 0000-0001-8401-4044
+      affiliation: "1"
+    - name: Amanda Windsor
+      orcid: 0000-0002-5192-7047
+      affiliation: "1"
+    - name: Christopher Grim
+      orcid: 0000-0002-7839-8309
+      affiliation: "1"
+    - name: Mark Mammel
+      orcid: 0000-0002-8273-6091
+      affiliation: "1"
+    - name: Padmini Ramachandran
+      orcid: 0000-0002-3958-3843
+      affiliation: "1"
 affiliations:
-- name: Human Foods Program, U.S. Food and Drug Administration, United States
-   index: 1
-   ror: 034xvzb47
-date: 22 December 2025
+    - name: Human Foods Program, U.S. Food and Drug Administration, United States
+      index: 1
+      ror: 034xvzb47
+date: 15 January 2026
 bibliography: paper.bib
 ---
 
