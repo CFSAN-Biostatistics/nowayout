@@ -4,7 +4,7 @@
 
 ---
 
-`nowayout` is a **super-fast** automated software pipeline for taxonomic classification of Eukaryotic mitochondrial reads. It uses a custom database to first identify mitochondrial reads and performs read classification on those identified reads.
+`nowayout` is a **ultra-fast** automated software pipeline for taxonomic classification of Eukaryotic mitochondrial reads. It uses a custom database to first identify mitochondrial reads and performs read classification on those identified reads.
 
 ---
 
@@ -30,19 +30,19 @@
 
 ## Minimum Requirements
 
-1. [Nextflow version 25.04.6](https://github.com/nextflow-io/nextflow/releases/download/v25.04.6/nextflow).
+1. [Nextflow version 25.10.2](https://github.com/nextflow-io/nextflow/releases/download/v25.10.2/nextflow).
     - Make the `nextflow` binary executable (`chmod 755 nextflow`) and also make sure that it is made available in your `$PATH`.
     - If your existing `JAVA` install does not support the newest **Nextflow** version, you can try **Amazon**'s `JAVA` (OpenJDK):  [Corretto](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html).
-2. Either of `micromamba` (version `1.5.9`) or `docker` or `singularity` installed and made available in your `$PATH`.
+2. Either of `micromamba` or `docker` or `singularity` installed and made available in your `$PATH`.
     - Running the workflow via `micromamba` software provisioning is **preferred** as it does not require any `sudo` or `admin` privileges or any other configurations with respect to the various container providers.
     - To install `micromamba` for your system type, please follow these [installation steps](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#linux-and-macos) and make sure that the `micromamba` binary is made available in your `$PATH`.
     - Just the `curl` step is sufficient to download the binary as far as running the workflows are concerned.
-    - Once you have finished the installation, **it is important that you downgrade `micromamba` to version `1.5.9`**.
-    - First check, if your version is other than `1.5.9` and if not, do the downgrade.
+    - Once you have finished the installation, **it is important that you upgrade `micromamba` to at least version `2.3.2` or greater**.
+    - First check, if your version is less than `2.3.2`, if not, do the upgrade.
 
         ```bash
         micromamba --version
-        micromamba self-update --version 1.5.9 -c conda-forge
+        micromamba self-update -c conda-forge
         ```
 
 3. Minimum of 10 CPU cores and about 60 GBs for main workflow steps. More memory may be required if your **FASTQ** files are big.
@@ -243,7 +243,7 @@ my_aws_batch {
 After you make sure that you have all the [minimum requirements](#minimum-requirements) to run the workflow, you can try the `nowayout` on some datasets.
 
 - Download input reads [from S3](https://cfsan-pub-xfer.s3.amazonaws.com/Kranti.Konganti/nowayout/nowayout_test_reads.tar.bz2) (~ 8 GB).
-  - This dataset was part of the research for detecting and identifying insects or insect fragments in food, an essential component of food safety and regulatory monitoring. Insects such as **_Plodia interpunctella_** (Indian meal moth) and _**Tribolium castaneum**_ (Red flour beetle) were intentionally spiked into wheat flour at varying concentrations to create benchmark samples. These served as reference materials to test and validate molecular detection workflows.
+  - This dataset was part of the research for detecting and identifying insects or insect fragments in food, an essential component of food safety and regulatory monitoring. Insects such as **_Plodia interpunctella_** (Indian meal moth) and _**Tribolium castaneum**_ (red flour beetle) were intentionally spiked into wheat flour at varying concentrations to create benchmark samples. These serve as reference materials to test and validate molecular detection workflows.
 - Download pre-formatted  databases (**MANDATORY**) [from S3](https://cfsan-pub-xfer.s3.amazonaws.com/Kranti.Konganti/nowayout/nowayout_dbs.tar.bz2) (~ 22 GB).
 - After successful download, untar and add **symbolic links** in [assets](../assets) folder as described in the [Databases](#databases) section.
 - It is always a best practice to use absolute UNIX paths and real destinations of symbolic links during pipeline execution. For example, find out the real path(s) of your absolute UNIX path(s) and use that for the `--input` and `--output` options of the pipeline.

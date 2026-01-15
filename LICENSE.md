@@ -1,9 +1,9 @@
 # CPIPES (CFSAN PIPELINES)
 
-## The modular pipeline repository at CFSAN, FDA
+## The modular pipeline repository at HFP, FDA
 
 **CPIPES** (CFSAN PIPELINES) is a collection of modular pipelines based on **NEXTFLOW**,
-mostly for bioinformatics data analysis at **CFSAN, FDA.**
+mostly for bioinformatics data analysis at **HFP, FDA.**
 
 ---
 
@@ -17,7 +17,7 @@ mostly for bioinformatics data analysis at **CFSAN, FDA.**
 ```text
 MIT License
 
-In the U.S.A. Public Domain; elsewhere Copyright (c) 2022 U.S. Food and Drug Administration
+In the U.S.A. Public Domain; elsewhere Copyright (c) 2026 U.S. Food and Drug Administration
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

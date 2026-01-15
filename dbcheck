@@ -9,8 +9,8 @@ CYAN=$(tput setaf 6)
 CLRESET=$(tput sgr0)
 prog_name="nowayout"
 dbBuild="03062025"
-# dbPath="./assets/${prog_name}/$dbBuild"
-dbPath="./assets/dbfiles"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+dbPath="${SCRIPT_DIR}/assets/dbfiles"
 taxonomyPath="$dbPath/taxonomy"
 
 usage()
@@ -65,7 +65,7 @@ if [ -n "$listdb" ]; then
     echo "=============================================="
     
     db_num="1"
-    find -L $taxonomyPath -type d | tail -n+2 | while read -r db; do
+    find -L "$taxonomyPath" -type d | tail -n+2 | while read -r db; do
         dbName=$(basename "$db")
         echo "${db_num}. $dbName"
         db_num=$(( db_num + 1 ))
