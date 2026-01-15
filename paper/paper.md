@@ -9,7 +9,7 @@ tags:
 - Bacterial Genomics
 authors:
 - name: Kranti Konganti
-    orcid: 0000-0000-0000-0000
+    orcid: 0009-0002-3023-1099
     affiliation: "1"
     corresponding: true
 - name: Monica Pava-Ripoll
@@ -22,6 +22,7 @@ authors:
     orcid: 0000-0002-7839-8309
     affiliation: "1"
 - name: Mark Mammel
+    orcid: 0000-0002-8273-6091
     affiliation: "1"
 - name: Padmini Ramachandran
     orcid: 0000-0002-3958-3843
