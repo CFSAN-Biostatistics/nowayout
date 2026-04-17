@@ -75,7 +75,7 @@ To evaluate nowayout, we analyzed sequencing data (FASTQ files) generated from t
 
 The sequencing libraries were generated using the KAPA HyperPlus Library Preparation Kit (Roche Diagnostics) following the manufacturer’s instructions. For targeted hybridization capture, amplified libraries with similar concentrations were pooled and enriched for mitochondrial targets using custom arthropod bait panels, applying either panel v1 or panel v2 under the same capture workflow. Enriched libraries were sequenced on an Illumina MiSeq platform.
 
- Using `nowayout`, all expected insect taxa were detected in mixtures 1 (a) and 2 (b), and most taxa were recovered in mixture 3 (c) (21 of 23), with complete removal of wheat-flour background signal using panel v2 ([Table 1](https://research.foodsafetyrisk.org/nowayout/paper/Table_1.htm)). The nowayout visualizations produced a more interpretable and [informative taxonomic profile](https://research.foodsafetyrisk.org/nowayout/paper/krona_nowayout_paper.html).
+ Using `nowayout`, all expected insect taxa were detected in mixtures 1 (a) and 2 (b), and most taxa were recovered in mixture 3 (c) (21 of 23), with complete removal of wheat-flour background signal using panel v2 (\autoref{fig2}; [Table 1](https://research.foodsafetyrisk.org/nowayout/paper/Table_1.htm)). The nowayout visualizations produced a more interpretable and [informative taxonomic profile](https://research.foodsafetyrisk.org/nowayout/paper/krona_nowayout_paper.html).
 
 # Research Impact Statement
 
