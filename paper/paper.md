@@ -83,7 +83,7 @@ The sequencing libraries were generated using the KAPA HyperPlus Library Prepara
 
 The `nowayout` pipeline was validated using controlled mock community experiments consisting of three genomic DNA mixtures containing 23 insect taxa across seven orders spiked into a wheat flour matrix at a 4:1 flour-to-insect DNA ratio. The pipeline achieved 100% detection accuracy in mixtures 1 and 2, and identified 21 of 22 expected taxa in mixture 3 (\autoref{fig2}).
 
-![The top taxa identified by `nowayout` in the three DNA mock Mixtures. \label{fig2}](fig2.pdf){width=100%}.
+![The top taxa identified by `nowayout` in the three DNA mock Mixtures. []{label="fig2"}](fig2.pdf){width=100%}
 
 The reduction of wheat flour background signal observed with bait panel v2 highlights the analytical value of integrating high-performance bait panels with automated classification, which streamlines the analysis of complex metagenomic datasets across various samples and conditions. To improve accessibility, `nowayout` has been integrated into the [FDA's GalaxyTrakr platform](https://galaxytrakr.org) (version ≥25.x). This web-based interface removes the requirement for command-line expertise, allowing food safety laboratories without dedicated bioinformatics personnel to perform advanced mitochondrial metagenomic analysis.
 
